@@ -6,5 +6,19 @@ on:
   push:
     branches: ["main"]
 
-#chạy công việc gì
+#chạy công việc
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v4
+
+      - name: Đăng nhập vào docker
+        run: docker login -u ngynbao -p ${{secrets.DOCKER_TOKEN}}
+
+      - name: Build image
+        run: docker build -t ngynbao/cyber_media:latest
+
+      - name: Push to DockerHub
+        run: docker push ngynbao/cyber_media:latest
