@@ -1,0 +1,10 @@
+#name of ci
+name: CI_DOCKER
+
+#chạy khi nào
+on:
+  push:
+    branches: ["main"]
+
+#chạy công việc gì
+jobs:
