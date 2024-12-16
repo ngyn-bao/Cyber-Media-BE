@@ -11,7 +11,7 @@ on:
 #Chạy công việc gì
 jobs:
   build:
-    runs-on: ubuntu:latest
+    runs-on: node-bootcamp
 
     steps:
       - name: Xóa file .env cũ
