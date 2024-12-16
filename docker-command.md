@@ -82,3 +82,10 @@ docker logs container_id or name
 ### Tải vim
 
 apt-get update && apt-get install -y vim
+
+### Tương tác với github action
+
+Enter the name of the runner group to add this runner to: [press Enter for Default]
+=> chọn default
+
+Enter the name of runner: [press Enter for ip-172-31-47-244] => Default

@@ -22,7 +22,7 @@ console.log(123);
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://domain.com", "google.com"],
-  })
+  }),
 );
 
 // Create and use the GraphQL handler.
@@ -31,7 +31,7 @@ app.all(
   createHandler({
     schema: schema,
     rootValue: root,
-  })
+  }),
 );
 
 // Serve the GraphiQL IDE.
@@ -43,6 +43,8 @@ app.get("/", (_req, res) => {
 app.use(rootRouter);
 
 app.use(errorHandler);
+
+// console.log("hello");
 
 //sử dụng prisma orm => db first
 // b1: npx prisma init -> tạo 1 folder prisma - schema
