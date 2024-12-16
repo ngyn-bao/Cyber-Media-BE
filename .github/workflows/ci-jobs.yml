@@ -9,7 +9,7 @@ on:
 #chạy công việc
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: node-bootcamp
 
     steps:
       - uses: actions/checkout@v4
