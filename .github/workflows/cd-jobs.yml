@@ -11,7 +11,7 @@ on:
 #Chạy công việc gì
 jobs:
   build:
-    runs-on: bootcampT7CN
+    runs-on: ubuntu:latest
 
     steps:
       - name: Xóa file .env cũ
