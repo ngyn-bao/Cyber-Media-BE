@@ -44,8 +44,6 @@ app.use(rootRouter);
 
 app.use(errorHandler);
 
-// console.log("hello");
-
 //sử dụng prisma orm => db first
 // b1: npx prisma init -> tạo 1 folder prisma - schema
 
