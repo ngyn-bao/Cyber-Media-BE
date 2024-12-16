@@ -31,9 +31,9 @@ docker ps
 
 ls -la
 
-### Docker:
+### Docker check IP:
 
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' id_name_container
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <tên image hoặc id image>
 
 ### Tạo docker compose (Phải có file docker-compose.yml)
 
@@ -41,6 +41,6 @@ docker compose up -d
 
 ### Đánh tag trước khi push lên dockerhub đúng account nào cần đẩy lên
 
-docker tag cyber_media ngynbao/cyber_media
+docker tag <tên image hoặc id image> <tài khoản dockerhub>/<tên image hoặc id image>
 
-docker push ngynbao/cyber_media
+docker push <tài khoản dockerhub>/<tên image hoặc id image>
