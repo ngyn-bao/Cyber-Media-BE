@@ -1,0 +1,36 @@
+#name of cd
+name: CD_DOCKER
+
+#Chạy khi nào
+on:
+  workflow_run:
+    workflows: ["CI_DOCKER"]
+    types:
+      - completed
+
+#Chạy công việc gì
+jobs:
+  build:
+    runs-on: bootcampT7CN
+
+    steps:
+      - name: Xóa file .env cũ
+        run: sudo rm -f .env
+
+      - name: Tạo file .env
+        run:
+          echo "DATABASE_URL=mysql://root:1234@con_mysql_media:3306/db_cyber_media" >> .env
+          echo "ACCESS_TOKEN_SECRET=MAHOA_ACCESSTOKEN" >> .env
+          echo "ACCESS_TOKEN_EXPIRE=15m" >> .env
+          echo "REFRESH_TOKEN_SECRET=MAHOA_REFRESHTOKEN" >> .env
+          echo "REFRESH_TOKEN_EXPIRE=7days" >> .env
+
+      - name: Dừng và xóa container be và db
+        run: sudo docker container stop con_compose_media || true
+          sudo docker container remove con_compose_media  || true
+
+      - name: Xóa image cũ
+        run: sudo docker image rm ngynbao/cyber_media || true
+
+      - name: Chạy lại docker compose
+        run: sudo docker compose up -d

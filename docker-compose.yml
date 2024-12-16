@@ -2,7 +2,7 @@ version: "0.0.1"
 
 services:
   be-compose:
-    image: cyber_media
+    image: ngynbao/cyber_media
     container_name: con_compose_media
     ports:
       - "3070:3069"

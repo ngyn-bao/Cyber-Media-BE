@@ -1,3 +1,5 @@
+# Build CI Pipeline
+
 ### Lệnh build image docker
 
 docker build -t <tên image> <đường dẫn tới dockerfile> // . nếu ở cùng folder
@@ -44,3 +46,39 @@ docker compose up -d
 docker tag <tên image hoặc id image> <tài khoản dockerhub>/<tên image hoặc id image>
 
 docker push <tài khoản dockerhub>/<tên image hoặc id image>
+
+# Server & CD Pipeline
+
+### Tương tác cấp quyền cho keypair
+
+```bash
+check pwd on WSL
+pws
+cp key-pair.pem ~/
+chmod 400 key-pair.pem
+ls -l key-pair.pem
+
+ssh -i "~/key-pair.pem" ubuntu@ec2...
+
+```
+
+### Di chuyển
+
+cd ten_duong_dan đi vào
+cd ../ đi ra
+
+### Tạo file mới
+
+touch docker-compose.yml
+
+### truy cập terminal của Container
+
+docker exec -it container_id_name /bin/sh
+
+### Kiểm tra log của container
+
+docker logs container_id or name
+
+### Tải vim
+
+apt-get update && apt-get install -y vim
