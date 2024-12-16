@@ -24,6 +24,7 @@ jobs:
           echo "ACCESS_TOKEN_EXPIRE=15m" >> .env
           echo "REFRESH_TOKEN_SECRET=MAHOA_REFRESHTOKEN" >> .env
           echo "REFRESH_TOKEN_EXPIRE=7days" >> .env
+          echo "CLOUDINARY_SECRET=pCBDumNAMMiCE1rCbRrHXfhK09U" >> .env
 
       - name: Dừng và xóa container be và db
         run: sudo docker container stop con_compose_media || true
