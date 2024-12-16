@@ -65,7 +65,7 @@ const authService = {
     //kĩ thuật ngắt dòng
     if (!userExist) {
       throw new BadRequestError(
-        "Không tìm thấy tài khoản, vui lòng đăng kí nhé!"
+        "Không tìm thấy tài khoản, vui lòng đăng kí nhé!",
       );
     }
     //bước 3 kiểm tra password;
@@ -130,6 +130,7 @@ const authService = {
     //console.log({ log_token: refreshToken, log_token2: accessToken });
     //xác minh các cái token này dùng verify của jwt
 
+    console.log("123");
     const decodeAccessToken = jwt.verify(accessToken, ACCESS_TOKEN_SECRET, {
       ignoreExpiration: true,
     });

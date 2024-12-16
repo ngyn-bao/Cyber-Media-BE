@@ -18,7 +18,7 @@ jobs:
         run: sudo rm -f .env
 
       - name: Tạo file .env
-        run:
+        run: |
           echo "DATABASE_URL=mysql://root:1234@con_mysql_media:3306/db_cyber_media" >> .env
           echo "ACCESS_TOKEN_SECRET=MAHOA_ACCESSTOKEN" >> .env
           echo "ACCESS_TOKEN_EXPIRE=15m" >> .env
@@ -27,7 +27,8 @@ jobs:
           echo "CLOUDINARY_SECRET=pCBDumNAMMiCE1rCbRrHXfhK09U" >> .env
 
       - name: Dừng và xóa container be và db
-        run: sudo docker container stop con_compose_media || true
+        run: |
+          sudo docker container stop con_compose_media || true
           sudo docker container remove con_compose_media  || true
 
       - name: Xóa image cũ
